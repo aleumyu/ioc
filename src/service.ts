@@ -1,5 +1,7 @@
-import { IUserService, IUserRepository } from './types';
+import { IUserService, IUserRepository, TOKENS } from './types';
+import { injectable } from './decorator';
 
+@injectable([TOKENS.UserRepository])
 export class UserService implements IUserService {
   constructor(private userRepository: IUserRepository) {}
 

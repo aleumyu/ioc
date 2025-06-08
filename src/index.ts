@@ -3,11 +3,10 @@ import { TOKENS, IUserService } from './types';
 import { UserService } from './service';
 import { UserRepository } from './repository';
 
-// Register the UserRepository
-container.register(TOKENS.UserRepository, new UserRepository());
+console.log('Registering dependencies...');
+container.register(TOKENS.UserRepository, UserRepository);
+container.register(TOKENS.UserService, UserService);
 
-// Register the UserService
-container.register(
-  TOKENS.UserService,
-  new UserService(container.resolve(TOKENS.UserRepository))
-);
+const userService = container.resolve<IUserService>(TOKENS.UserService);
+console.log(userService.getUserName(1));
+console.log(userService.getUserName(2));

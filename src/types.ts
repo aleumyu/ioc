@@ -20,3 +20,4 @@ export const TOKENS = {
   UserRepository: Symbol.for('IUserRepository'),
   UserService: Symbol.for('IUserService'),
 };
+console.log({ TOKENS });
