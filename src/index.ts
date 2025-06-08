@@ -8,5 +8,6 @@ container.register(TOKENS.UserRepository, UserRepository);
 container.register(TOKENS.UserService, UserService);
 
 const userService = container.resolve<IUserService>(TOKENS.UserService);
+// const userService = new UserService(new UserRepository());
 console.log(userService.getUserName(1));
 console.log(userService.getUserName(2));
